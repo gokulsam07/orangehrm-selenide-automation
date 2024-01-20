@@ -34,12 +34,10 @@ public class HomePage {
 
 		public IMenuPage clickMenu(String menu) {
 			driver.findElement(byTagAndText("span", menu)).click();
-			switch (menu) {
-			case "My Info":
-				return new MyInfoPage();
-			default:
-				throw new IllegalArgumentException("Unsupported menu: " + menu);
-			}
+			return switch (menu) {
+			case "My Info"-> new MyInfoPage();
+			default->throw new IllegalArgumentException("Unsupported menu: " + menu);
+			};
 		}
 
 		public void searchMenu(String searchString) {

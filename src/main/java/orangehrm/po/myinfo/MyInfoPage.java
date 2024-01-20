@@ -18,12 +18,10 @@ public class MyInfoPage implements IMenuPage {
 			return new ProfilePicturePage();
 		} else {
 			$(byTagAndText("a", subMenu)).click();
-			switch (subMenu) {
-			case "Profile Details":
-				return new ProfileDetailsPage();
-			default:
-				throw new IllegalArgumentException("menu " + subMenu + "is not valid");
-			}
+			return switch (subMenu) {
+			case "Profile Details" -> new ProfileDetailsPage();
+			default -> throw new IllegalArgumentException("menu " + subMenu + "is not valid");
+			};
 		}
 	}
 
