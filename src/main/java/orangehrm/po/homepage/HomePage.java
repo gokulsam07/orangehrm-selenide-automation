@@ -15,6 +15,8 @@ import org.openqa.selenium.WebElement;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 
+import orangehrm.po.myinfo.MyInfoPage;
+
 public class HomePage {
 	public WebDriver driver;
 	private static final SelenideElement userLoginVerification = $(byAttribute("alt", "profile picture"));
@@ -30,8 +32,14 @@ public class HomePage {
 
 	public class MenuComponent {
 
-		public void clickMenu(String menu) {
+		public IMenuPage clickMenu(String menu) {
 			driver.findElement(byTagAndText("span", menu)).click();
+			switch (menu) {
+			case "My Info":
+				return new MyInfoPage();
+			default:
+				throw new IllegalArgumentException("Unsupported menu: " + menu);
+			}
 		}
 
 		public void searchMenu(String searchString) {

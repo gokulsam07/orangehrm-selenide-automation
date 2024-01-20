@@ -4,11 +4,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import orangehrm.po.homepage.HomePage;
-import orangehrm.po.login.LoginPage;
 
 public class MenuTest {
 	private HomePage homepage;
