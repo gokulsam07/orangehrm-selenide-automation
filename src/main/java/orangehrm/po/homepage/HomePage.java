@@ -4,7 +4,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byTagAndText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 
 import java.util.List;
 
@@ -30,15 +30,19 @@ public class HomePage {
 		userLoginVerification.shouldBe(visible);
 		return this;
 	}
+	public void logout() {
+		$(".oxd-userdropdown-name").click();
+		$x("//a[normalize-space()='Logout']").click();
+	}
 
 	public class MenuComponent {
 
 		public IMenuPage clickMenu(String menu) {
 			driver.findElement(byTagAndText("span", menu)).click();
 			return switch (menu) {
-			case "My Info"-> new MyInfoPage();
+			case "My Info" -> new MyInfoPage();
 			case "PIM" -> new PIMEmployeeListPage();
-			default->throw new IllegalArgumentException("Unsupported menu: " + menu);
+			default -> throw new IllegalArgumentException("Unsupported menu: " + menu);
 			};
 		}
 
