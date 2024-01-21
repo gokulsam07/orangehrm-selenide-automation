@@ -13,6 +13,10 @@ import orangehrm.po.pim.PIMEmployeeListPage;
 
 public class _2EmployeeListTest {
 	private HomePage homepage;
+	private String menu = "PIM";
+	private String searchString="";
+	private String fieldName = "";
+	private String option = "";
 
 	@BeforeClass
 	public void login() {
@@ -23,7 +27,6 @@ public class _2EmployeeListTest {
 
 	@Test
 	public void _1validateEmployeeCountTest() {
-		String menu = "PIM";
 		PIMEmployeeListPage pim = (PIMEmployeeListPage) homepage.new MenuComponent().clickMenu(menu);
 		pim.validateCurrentMenu(menu);
 		Assert.assertTrue(pim.validateSearchResultAndSize(), "Expected size didn't match with actual size");
@@ -31,8 +34,7 @@ public class _2EmployeeListTest {
 
 	@Test
 	public void _2validateSearchTest() {
-		String menu = "PIM";
-		String searchString = "Ad";
+		searchString = "Ad";
 		PIMEmployeeListPage pim = (PIMEmployeeListPage) homepage.new MenuComponent().clickMenu(menu);
 		pim.setEmployeeName(searchString);
 		pim.searchDetails();
@@ -41,8 +43,7 @@ public class _2EmployeeListTest {
 
 	@Test
 	public void _3validateNoResultToastTest() throws InterruptedException {
-		String menu = "PIM";
-		String searchString = "zoo";
+		searchString = "zoo";
 		PIMEmployeeListPage pim = (PIMEmployeeListPage) homepage.new MenuComponent().clickMenu(menu);
 		pim.setEmployeeName(searchString);
 		pim.searchDetails();		
@@ -50,9 +51,8 @@ public class _2EmployeeListTest {
 	}
 	@Test
 	public void _4searchBySubUnitTest() throws InterruptedException {
-		String menu = "PIM";
-		String fieldName = "Sub Unit";
-		String option = "Quality Assurance";
+		fieldName = "Sub Unit";
+		option = "Quality Assurance";
 		PIMEmployeeListPage pim = (PIMEmployeeListPage) homepage.new MenuComponent().clickMenu(menu);
 		pim.selectDropDownOptionForField(fieldName,option);
 		pim.searchDetails();
@@ -60,9 +60,8 @@ public class _2EmployeeListTest {
 	}
 	@Test
 	public void _5searchByJobTitleTest() throws InterruptedException {
-		String menu = "PIM";
-		String fieldName = "Job Title";
-		String option = "Software Engineer";
+		fieldName = "Job Title";
+		option = "Software Engineer";
 		PIMEmployeeListPage pim = (PIMEmployeeListPage) homepage.new MenuComponent().clickMenu(menu);
 		pim.selectDropDownOptionForField(fieldName,option);
 		pim.searchDetails();

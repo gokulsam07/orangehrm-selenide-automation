@@ -44,7 +44,7 @@ public class _1AddEmployeeTest {
 
 	@Test
 	public void _3validateAddedEmployeeTest() {
-		pim = (PIMEmployeeListPage)homepage.new MenuComponent().clickMenu(menu);
+		pim.clickSubMenu("Employee List");
 		pim.setEmployeeName(firstName + " " + lastName);
 		pim.searchDetails();
 		Assert.assertTrue(pim.validateSearchResults(), "Employee details is not visible");

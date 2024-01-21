@@ -46,7 +46,7 @@ public class PIMEmployeeListPage implements IMenuPage {
 			return new AddEmployeePage();
 		} else if (subMenu.contains("Reports")) {
 			reports.click();
-			return new AddEmployeePage();
+			return new ReportsPage();
 		} else if (subMenu.contains("Employee List")) {
 			empList.click();
 			return new PIMEmployeeListPage();
@@ -117,7 +117,6 @@ public class PIMEmployeeListPage implements IMenuPage {
 	public void selectDropDownOptionForField(String fieldName, String option) {
 		$x("//label[contains(text(),'" + fieldName + "')]/parent::div/following-sibling::div//i").click();
 		$(byTagAndText("span", option)).shouldBe(visible).click();
-
 	}
 
 	public boolean validateSubUnitDetails(String unit) {
