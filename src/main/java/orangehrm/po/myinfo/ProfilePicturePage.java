@@ -1,7 +1,6 @@
 package orangehrm.po.myinfo;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
@@ -36,7 +35,8 @@ public class ProfilePicturePage implements ISubMenu {
 
 	}
 
-	public void robotUpload(String fileLocation) throws HeadlessException, UnsupportedFlavorException, IOException, AWTException {
+	public void robotUpload(String fileLocation)
+			throws HeadlessException, UnsupportedFlavorException, IOException, AWTException {
 		setClipboardData(fileLocation);
 		addPic.click();
 		Robot robot = new Robot();
@@ -57,10 +57,5 @@ public class ProfilePicturePage implements ISubMenu {
 	public boolean validateSuccessToast() throws InterruptedException {
 		Thread.sleep(2000);
 		return success.isDisplayed();
-	}
-
-	@Override
-	public boolean validateCurrentPage() {
-		return $x("//h6[normalize-space()='Change Profile Picture']").exists();
 	}
 }

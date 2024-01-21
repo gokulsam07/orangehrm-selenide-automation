@@ -16,6 +16,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 
 import orangehrm.po.myinfo.MyInfoPage;
+import orangehrm.po.pim.PIMEmployeeListPage;
 
 public class HomePage {
 	public WebDriver driver;
@@ -36,6 +37,7 @@ public class HomePage {
 			driver.findElement(byTagAndText("span", menu)).click();
 			return switch (menu) {
 			case "My Info"-> new MyInfoPage();
+			case "PIM" -> new PIMEmployeeListPage();
 			default->throw new IllegalArgumentException("Unsupported menu: " + menu);
 			};
 		}

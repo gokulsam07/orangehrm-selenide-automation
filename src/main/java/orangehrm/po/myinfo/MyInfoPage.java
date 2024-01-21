@@ -24,10 +24,4 @@ public class MyInfoPage implements IMenuPage {
 			};
 		}
 	}
-
-	@Override
-	public boolean validateCurrentPage() {
-		return false;
-	}
-
 }
