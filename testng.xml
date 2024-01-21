@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="RegressionSuite" parallel="tests" thread-count="2" verbose="10">
+<suite name="RegressionSuite" parallel="tests" thread-count="3" verbose="10">
 	<test name="RegressionNode1" verbose="10">
 		<packages>
 			<package name="parallel1.*" />
@@ -9,6 +9,11 @@
 	<test name="RegressionNode2" verbose="10">
 		<packages>
 			<package name="parallel2.*" />
+		</packages>
+	</test>
+	<test name="RegressionNode3" verbose="10">
+		<packages>
+			<package name="parallel3.*" />
 		</packages>
 	</test>
 </suite>

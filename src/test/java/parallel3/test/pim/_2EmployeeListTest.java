@@ -1,4 +1,4 @@
-package parallel2.test.pim;
+package parallel3.test.pim;
 
 import static com.codeborne.selenide.Selenide.open;
 
