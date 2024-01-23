@@ -37,7 +37,7 @@ public class _1MyInfoProfileTest {
 		MyInfoPage myInfoPage = (MyInfoPage) homepage.new MenuComponent().clickMenu(menu);
 		if (myInfoPage.validateCurrentMenu(menu)) {
 			profilePicPage = (ProfilePicturePage) myInfoPage.clickSubMenu(subMenu);
-			profilePicPage.robotUpload(file1Loc);
+			profilePicPage.selenideProfielPicUpload(file1Loc);
 			Assert.assertTrue(profilePicPage.validateSuccessToast());
 		}
 	}
