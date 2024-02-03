@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Regression" verbose="10">
+	<test thread-count="5" name="OrangeHRM" verbose="10">
+		<classes>
+			<class name="parallel3.test.pim._2EmployeeListTest" />
+			<class name="parallel1.test2.menu._1MenuTest" />
+			<class name="parallel4.test.pim._1ReportsTest" />
+			<class name="parallel1.test3.myinfo._1MyInfoProfileTest" />
+			<class name="parallel2.test.pim._1AddEmployeeTest" />
+		</classes>
+	</test> <!--
+	OrangeHRM -->
+</suite> <!--
+Regression -->

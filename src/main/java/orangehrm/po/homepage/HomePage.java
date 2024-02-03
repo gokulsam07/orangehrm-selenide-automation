@@ -21,15 +21,22 @@ import orangehrm.po.pim.PIMEmployeeListPage;
 public class HomePage {
 	public WebDriver driver;
 	private static final SelenideElement userLoginVerification = $(byAttribute("alt", "profile picture"));
+	private static final SelenideElement header = $x("//h6[normalize-space()='Dashboard']");
 
 	public HomePage() {
 		this.driver = WebDriverRunner.getWebDriver();
 	}
 
 	public HomePage isUserLoggedIn() {
+		int count = 0;
+		while ((!header.isDisplayed()) && count < 2) {
+			refresh();
+			count++;
+		}
 		userLoginVerification.shouldBe(visible);
 		return this;
 	}
+
 	public void logout() {
 		$(".oxd-userdropdown-name").click();
 		$x("//a[normalize-space()='Logout']").click();

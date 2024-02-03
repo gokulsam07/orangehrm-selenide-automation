@@ -128,7 +128,7 @@ public class ReportsPage implements ISubMenu {
 
 	public boolean validateReport(String reportName) throws InterruptedException {
 		Thread.sleep(5000);
-		return $x("//h6[normalize-space()='"+reportName+"']").exists() ;
+		return $x("//div[contains(text(),'"+reportName+"')]").exists() ;
 	}
 
 	public boolean deletReport(String reportName) throws InterruptedException {

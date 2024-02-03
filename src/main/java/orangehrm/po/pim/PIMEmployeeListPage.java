@@ -127,10 +127,9 @@ public class PIMEmployeeListPage implements IMenuPage {
 		return jobTitle.texts().stream().allMatch(i -> i.contains(title));
 	}
 
-	public boolean deleteEmployee() throws InterruptedException {
+	public boolean deleteEmployee(String firstName) throws InterruptedException {
 		Thread.sleep(5000);
-		$x("(//input[@type='checkbox'])[2]").click(ClickOptions.usingJavaScript());
-		trash.click();
+		$x("//div[contains(text(),'"+firstName+"')]/parent::div/following-sibling::div[6]//button[1]").click(ClickOptions.usingJavaScript());
 		sendToTrash.click();
 		Thread.sleep(2000);
 		return successToast.isDisplayed();

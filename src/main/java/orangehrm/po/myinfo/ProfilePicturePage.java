@@ -26,10 +26,10 @@ public class ProfilePicturePage implements ISubMenu {
 
 	public void selenideProfielPicUpload(String fileLocation) {
 		$("input[type='file']").uploadFromClasspath("headshot-changed.png");
+	}	
+	public void saveChanges() {
+		save.click();
 	}
-	
-
-
 	public boolean validateSuccessToast() throws InterruptedException {
 		Thread.sleep(2000);
 		return success.isDisplayed();
